@@ -24,7 +24,16 @@ public class CarMover : MonoBehaviour
         if (_destinationPoint != null && _isMoving)
         {
             _timer += Time.deltaTime;
-            transform.position = Vector3.Lerp(_startPosition, _destinationPoint.position, _timer * _movingSpeed);           
+            transform.position = Vector3.Lerp(_startPosition, _destinationPoint.position, _timer * _movingSpeed);
+            CheckArrive();
+        }
+    }
+
+    private void CheckArrive()
+    {
+        if (transform.position == _destinationPoint.position)
+        {
+            Destroy(this.gameObject);
         }
     }
 
