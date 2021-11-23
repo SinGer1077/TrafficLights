@@ -18,6 +18,7 @@ public class CarsSpawner : MonoBehaviour
     private TrafficController _traffic;
 
 
+
     private bool _isReadyToSpawn = true;
 
     private float _spawnedCars = 0f;

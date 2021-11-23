@@ -3,11 +3,20 @@ using UnityEngine;
 
 public class TrafficController : MonoBehaviour
 {
-   private List<GameObject> _cars = new List<GameObject>();
+    private List<GameObject> _cars = new List<GameObject>();
 
-   public void AddCar(GameObject car)
+    private ColorData _colorData;
+
+    private void Start()
     {
+        _colorData = GetComponent<Colorizer>().ColorData;
+    }
+
+    public void AddCar(GameObject car)
+    {
+        car.GetComponent<Colorizer>().SetColorData(_colorData);
         _cars.Add(car);
+
     }
 
     public void StopCars()
