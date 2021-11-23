@@ -2,24 +2,19 @@
 
 public class CarMover : MonoBehaviour
 {
-    private float _movingSpeed = 1.0f;
-
-    public float MovingSpeed => _movingSpeed;
+    private float _movingSpeed = 0.5f;
 
     private Transform _destinationPoint;
 
-    public Transform DestinationPoint => _destinationPoint;
-
     private Vector3 _startPosition;
 
-    private float _startTime;
+    private float _timer;
 
     private bool _isMoving;
 
     private void Start()
     {
         _startPosition = transform.position;
-        _startTime = Time.time;
 
         MoveCar();
     }
@@ -28,14 +23,14 @@ public class CarMover : MonoBehaviour
     {
         if (_destinationPoint != null && _isMoving)
         {
-            transform.position = Vector3.Lerp(_startPosition, _destinationPoint.position, Time.time - _startTime * _movingSpeed);
+            _timer += Time.deltaTime;
+            transform.position = Vector3.Lerp(_startPosition, _destinationPoint.position, _timer * _movingSpeed);           
         }
     }
 
     public void StopCar()
     {
         _isMoving = false;
-        
     }
 
     public void MoveCar()

@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CarsSpawner : MonoBehaviour
 {
@@ -19,11 +17,33 @@ public class CarsSpawner : MonoBehaviour
     [SerializeField]
     private TrafficController _traffic;
 
-    public int CountToSpawn => _countToSpawn;
+
+    private bool _isReadyToSpawn = true;
+
+    private float _spawnedCars = 0f;
+
+    private float _timer = 0f;
 
     private void Start()
     {
-        StartCoroutine("Spawn");
+        _timer = _timeBetweenSpawning;
+    }
+
+    private void Update()
+    {
+        if (_isReadyToSpawn)
+        {
+            _timer += Time.deltaTime;
+            if (_timer >= _timeBetweenSpawning)
+            {
+                if (_spawnedCars < _countToSpawn)
+                {
+                    Spawn();
+                    _spawnedCars++;
+                    _timer = 0;
+                }
+            }
+        }
     }
 
     public void SetCountToSpawn(int count)
@@ -31,15 +51,20 @@ public class CarsSpawner : MonoBehaviour
         _countToSpawn = count;
     }
 
-    public IEnumerator Spawn()
+    public void Spawn()
     {
-        for (int i = 0; i < _countToSpawn; i++)
-        {
-            GameObject car = Instantiate(_carPrefab, transform);
-            car.GetComponent<CarMover>().SetDestinationPoint(_destinationPoint);
-            _traffic.AddCar(car);
+        GameObject car = Instantiate(_carPrefab, transform);
+        car.GetComponent<CarMover>().SetDestinationPoint(_destinationPoint);
+        _traffic.AddCar(car);
+    }
 
-            yield return new WaitForSeconds(_timeBetweenSpawning);
-        }
+    public void StopSpawn()
+    {
+        _isReadyToSpawn = false;
+    }
+
+    public void ContinueSpawn()
+    {
+        _isReadyToSpawn = true;
     }
 }
