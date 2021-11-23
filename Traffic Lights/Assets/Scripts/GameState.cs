@@ -33,6 +33,7 @@ public class GameState : MonoBehaviour
     public void Win()
     {
         _canvas.SetActive(true);
+        Time.timeScale = 0;
         _endGameText.text = "Вы выиграли!";
     }
 

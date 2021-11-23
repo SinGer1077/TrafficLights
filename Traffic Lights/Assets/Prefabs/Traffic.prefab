@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7345139014806432188}
   - component: {fileID: 7345139014806432189}
+  - component: {fileID: 5851103277349708748}
   m_Layer: 0
   m_Name: Visualization
   m_TagString: Untagged
@@ -81,6 +82,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &5851103277349708748
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7345139014806432187}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.000000022351742}
+  m_SpriteTilingProperty:
+    border: {x: 0.049999997, y: 0.049999997, z: 0.049999997, w: 0.049999997}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.16, y: 0.16}
+    newSize: {x: 0.16, y: 0.16}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.14568171, y: 0.14138092}
+  m_EdgeRadius: 0
 --- !u!1 &7345139015221120470
 GameObject:
   m_ObjectHideFlags: 0
@@ -173,7 +200,6 @@ GameObject:
   - component: {fileID: 7345139015612686966}
   - component: {fileID: 7345139015612686920}
   - component: {fileID: 7345139015612686967}
-  - component: {fileID: 7345139015612686921}
   - component: {fileID: 8069479208430414779}
   m_Layer: 0
   m_Name: Traffic
@@ -252,32 +278,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gameState: {fileID: 0}
   _carsSpeed: 0
---- !u!61 &7345139015612686921
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7345139015612686965}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!114 &8069479208430414779
 MonoBehaviour:
   m_ObjectHideFlags: 0
