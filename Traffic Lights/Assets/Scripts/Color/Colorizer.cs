@@ -6,7 +6,8 @@ public class Colorizer : MonoBehaviour
     [SerializeField]
     private SpriteRenderer _renderer;
 
-    public SpriteRenderer Renderer => _renderer;
+    [SerializeField]
+    private SpriteRenderer _destination;
 
     [SerializeField]
     private ColorData _colorData;
@@ -24,6 +25,10 @@ public class Colorizer : MonoBehaviour
     public void Colorize()
     {
         _renderer.color = _colorData.Color;
+        if (_destination != null)
+        {
+            _destination.color = _colorData.Color;
+        }
     }
 
     public void SetColorData(ColorData colorData)
