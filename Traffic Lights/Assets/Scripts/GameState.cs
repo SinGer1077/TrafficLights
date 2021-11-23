@@ -10,6 +10,9 @@ public class GameState : MonoBehaviour
     private GameObject _canvas;
 
     [SerializeField]
+    private Text _carsCountText;
+
+    [SerializeField]
     private Text _endGameText;
 
     private int _counter;
@@ -17,6 +20,7 @@ public class GameState : MonoBehaviour
     private void Start()
     {
         _canvas.SetActive(false);
+        SetText();
     }
 
     public void Lose()
@@ -35,7 +39,7 @@ public class GameState : MonoBehaviour
     public void IncreaseCounter()
     {        
         _counter++;
-        Debug.Log(_counter);
+        SetText();
         CheckGameFinished();
     }
 
@@ -45,5 +49,10 @@ public class GameState : MonoBehaviour
         {
             Win();
         }
+    }   
+
+    private void SetText()
+    {
+        _carsCountText.text = "Машин для победы: " + (_countToFinish - _counter).ToString();
     }
 }

@@ -161,12 +161,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Delegates:
-  - eventID: 0
+  - eventID: 4
     callback:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 7345139015612686967}
-          m_MethodName: StopCars
+          m_MethodName: ClickOnTraffic
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -177,33 +177,7 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
         - m_Target: {fileID: 7345139015889444801}
-          m_MethodName: StopSpawn
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - eventID: 1
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 7345139015612686967}
-          m_MethodName: MoveCars
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 7345139015889444801}
-          m_MethodName: ContinueSpawn
+          m_MethodName: ClickOnTraffic
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -225,6 +199,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f353b787c9e4535449e907b520bb2ce9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _gameState: {fileID: 0}
+  _carsSpeed: 0
 --- !u!61 &7345139015612686921
 BoxCollider2D:
   m_ObjectHideFlags: 0

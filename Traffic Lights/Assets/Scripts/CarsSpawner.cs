@@ -68,4 +68,16 @@ public class CarsSpawner : MonoBehaviour
     {
         _isReadyToSpawn = true;
     }
+
+    public void ClickOnTraffic()
+    {
+        if (_isReadyToSpawn)
+        {
+            StopSpawn();
+        }
+        else
+        {
+            ContinueSpawn();
+        }
+    }
 }

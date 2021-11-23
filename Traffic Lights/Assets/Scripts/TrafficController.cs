@@ -16,6 +16,8 @@ public class TrafficController : MonoBehaviour
 
     private ColorData _colorData;
 
+    private bool _isMoving = true;
+
     private void Start()
     {
         _colorData = GetComponent<Colorizer>().ColorData;
@@ -37,6 +39,7 @@ public class TrafficController : MonoBehaviour
 
     public void StopCars()
     {
+        _isMoving = false;
         foreach (GameObject car in _cars)
         {
             car.GetComponent<CarMover>().StopCar();
@@ -45,9 +48,22 @@ public class TrafficController : MonoBehaviour
 
     public void MoveCars()
     {
+        _isMoving = true;
         foreach (GameObject car in _cars)
         {
             car.GetComponent<CarMover>().MoveCar();
+        }
+    }
+
+    public void ClickOnTraffic()
+    {
+        if (_isMoving)
+        {           
+            StopCars();
+        }
+        else
+        {
+            MoveCars();
         }
     }
 
