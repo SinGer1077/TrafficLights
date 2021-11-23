@@ -154,6 +154,7 @@ MonoBehaviour:
     type: 3}
   _countToSpawn: 5
   _timeBetweenSpawning: 2
+  _destinationPoint: {fileID: 0}
 --- !u!4 &403132394
 Transform:
   m_ObjectHideFlags: 0
