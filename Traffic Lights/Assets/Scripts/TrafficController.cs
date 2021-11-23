@@ -7,6 +7,9 @@ public class TrafficController : MonoBehaviour
     [SerializeField]
     private GameState _gameState;
 
+    [SerializeField]
+    private float _carsSpeed;
+
     private List<GameObject> _cars = new List<GameObject>();
 
     public List<GameObject> Cars => _cars;
@@ -22,10 +25,11 @@ public class TrafficController : MonoBehaviour
     {
         car.GetComponent<Colorizer>().SetColorData(_colorData);
         car.GetComponent<CarTriggers>().CollisionEvents.AddListener(_gameState.Lose);
-        car.GetComponent<CarMover>().SetController(this);
 
-        UnityEvent mover = car.GetComponent<CarMover>().ArriveEvents;
-        mover.AddListener(_gameState.IncreaseCounter);
+        CarMover mover = car.GetComponent<CarMover>();
+        mover.SetController(this);
+        mover.SetSpeed(_carsSpeed);       
+        mover.ArriveEvents.AddListener(_gameState.IncreaseCounter);
 
         _cars.Add(car);
 

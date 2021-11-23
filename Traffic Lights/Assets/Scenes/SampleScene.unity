@@ -276,6 +276,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7345139015612686967, guid: dab7f915034a7f34c8dc7e3cdb49c315,
         type: 3}
+      propertyPath: _carsSpeed
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7345139015612686967, guid: dab7f915034a7f34c8dc7e3cdb49c315,
+        type: 3}
       propertyPath: _gameState
       value: 
       objectReference: {fileID: 499026261}
@@ -1024,6 +1029,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7345139015612686967, guid: dab7f915034a7f34c8dc7e3cdb49c315,
+        type: 3}
+      propertyPath: _carsSpeed
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7345139015612686967, guid: dab7f915034a7f34c8dc7e3cdb49c315,
         type: 3}
