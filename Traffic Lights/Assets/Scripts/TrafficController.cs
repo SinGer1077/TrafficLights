@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class TrafficController : MonoBehaviour
 {
@@ -7,6 +8,8 @@ public class TrafficController : MonoBehaviour
     private GameState _gameState;
 
     private List<GameObject> _cars = new List<GameObject>();
+
+    public List<GameObject> Cars => _cars;
 
     private ColorData _colorData;
 
@@ -19,7 +22,11 @@ public class TrafficController : MonoBehaviour
     {
         car.GetComponent<Colorizer>().SetColorData(_colorData);
         car.GetComponent<CarTriggers>().CollisionEvents.AddListener(_gameState.Lose);
-        car.GetComponent<CarMover>().ArriveEvents.AddListener(_gameState.IncreaseCounter);
+        car.GetComponent<CarMover>().SetController(this);
+
+        UnityEvent mover = car.GetComponent<CarMover>().ArriveEvents;
+        mover.AddListener(_gameState.IncreaseCounter);
+
         _cars.Add(car);
 
     }
@@ -39,4 +46,5 @@ public class TrafficController : MonoBehaviour
             car.GetComponent<CarMover>().MoveCar();
         }
     }
+
 }

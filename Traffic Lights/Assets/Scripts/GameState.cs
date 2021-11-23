@@ -22,18 +22,20 @@ public class GameState : MonoBehaviour
     public void Lose()
     {
         _canvas.SetActive(true);
+        Time.timeScale = 0;
         _endGameText.text = "Вы проиграли!";
     }
 
     public void Win()
     {
-        _canvas.SetActive(false);
+        _canvas.SetActive(true);
         _endGameText.text = "Вы выиграли!";
     }
 
     public void IncreaseCounter()
-    {
+    {        
         _counter++;
+        Debug.Log(_counter);
         CheckGameFinished();
     }
 

@@ -14,8 +14,10 @@ public class CarMover : MonoBehaviour
     private bool _isMoving;
 
 
+    private TrafficController _controller;
+
     private UnityEvent _event;
-    public UnityEvent ArriveEvents => _event;
+    public UnityEvent ArriveEvents => _event = new UnityEvent();
 
     private void Start()
     {
@@ -38,7 +40,9 @@ public class CarMover : MonoBehaviour
     {
         if (transform.position == _destinationPoint.position)
         {
+            _isMoving = false;
             _event.Invoke();
+            _controller.Cars.Remove(this.gameObject);
             Destroy(this.gameObject);
         }
     }
@@ -62,5 +66,10 @@ public class CarMover : MonoBehaviour
     public void SetSpeed(float speed)
     {
         _movingSpeed = speed;
+    }
+
+    public void SetController(TrafficController controller)
+    {
+        _controller = controller;
     }
 }

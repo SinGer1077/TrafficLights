@@ -5,11 +5,12 @@ using UnityEngine.Events;
 
 public class CarTriggers : MonoBehaviour
 {
-    private UnityEvent _event;
+    private UnityEvent _event = new UnityEvent();
 
     public UnityEvent CollisionEvents => _event;
+    
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         _event.Invoke();
     }
