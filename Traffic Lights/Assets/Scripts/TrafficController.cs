@@ -58,11 +58,13 @@ public class TrafficController : MonoBehaviour
     public void ClickOnTraffic()
     {
         if (_isMoving)
-        {           
+        {
+            GetComponent<Colorizer>().ChangeAlpha(0.5f);
             StopCars();
         }
         else
         {
+            GetComponent<Colorizer>().ChangeAlpha(1.0f);
             MoveCars();
         }
     }

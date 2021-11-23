@@ -6,6 +6,8 @@ public class Colorizer : MonoBehaviour
     [SerializeField]
     private SpriteRenderer _renderer;
 
+    public SpriteRenderer Renderer => _renderer;
+
     [SerializeField]
     private ColorData _colorData;
 
@@ -28,6 +30,11 @@ public class Colorizer : MonoBehaviour
     {
         _colorData = colorData;
         Colorize();
+    }
+
+    public void ChangeAlpha(float alpha)
+    {
+        _renderer.color = new Color(_colorData.Color.r, _colorData.Color.g, _colorData.Color.b, alpha);
     }
 
 }
