@@ -18,8 +18,8 @@ public class TrafficController : MonoBehaviour
     public void AddCar(GameObject car)
     {
         car.GetComponent<Colorizer>().SetColorData(_colorData);
-        car.GetComponent<CarTriggers>().CollisionEvents.AddListener(_gameState.Lose());
-        car.GetComponent<CarMover>().ArriveEvents.AddListener(_gameState.IncreaseCounter());
+        car.GetComponent<CarTriggers>().CollisionEvents.AddListener(_gameState.Lose);
+        car.GetComponent<CarMover>().ArriveEvents.AddListener(_gameState.IncreaseCounter);
         _cars.Add(car);
 
     }
