@@ -14,7 +14,10 @@ public class CarsSpawner : MonoBehaviour
     private float _timeBetweenSpawning = 1.0f;
 
     [SerializeField]
-    private Transform _destinationPoint;
+    private Transform _destinationPoint;    
+
+    [SerializeField]
+    private TrafficController _traffic;
 
     public int CountToSpawn => _countToSpawn;
 
@@ -34,6 +37,7 @@ public class CarsSpawner : MonoBehaviour
         {
             GameObject car = Instantiate(_carPrefab, transform);
             car.GetComponent<CarMover>().SetDestinationPoint(_destinationPoint);
+            _traffic.AddCar(car);
 
             yield return new WaitForSeconds(_timeBetweenSpawning);
         }
