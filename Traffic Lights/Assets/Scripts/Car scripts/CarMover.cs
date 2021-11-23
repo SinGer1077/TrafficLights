@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 
 public class CarMover : MonoBehaviour
 {
@@ -11,6 +12,10 @@ public class CarMover : MonoBehaviour
     private float _timer;
 
     private bool _isMoving;
+
+
+    private UnityEvent _event;
+    public UnityEvent ArriveEvents => _event;
 
     private void Start()
     {
@@ -33,6 +38,7 @@ public class CarMover : MonoBehaviour
     {
         if (transform.position == _destinationPoint.position)
         {
+            _event.Invoke();
             Destroy(this.gameObject);
         }
     }
